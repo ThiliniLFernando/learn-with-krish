@@ -8,26 +8,27 @@ function findMissing(numArray){
 
   numArray.sort(function(a,b){return a-b});
 
-  var allOk = new Array();
+  var allOk = 0;
   var missingNum = new Array() ;
   for (var i = 1; i < numArray.length; i++) {
-    if ((numArray[i] - numArray[i-1]) != 1) {
+    if ((numArray[i] - numArray[i-1]) == 2) {
       missingNum.push(numArray[i] - 1);
     }else if ((numArray[i] - numArray[i-1]) == 1) {
-      allOk.push(true);
+      allOk++;
     }
   }
 
   var size = missingNum.length ;
 
   if (size === 0) {
-    if (allOk.length === numArray.length-1) {
-      console.log("Maybe missing number is "+(numArray[0]-1)+" or "+(numArray[numArray.length-1]+1));
+    if (allOk === numArray.length-1) {
+      var lastIn = numArray.length - 1 ;
+      console.log("Maybe missing number is "+(numArray[0]-1)+" or "+(Number(numArray[lastIn])+1));
     }else{
       console.log("you entered number sequence is not followed the n+1 sequence");
     }
   }else if(size > 1){
-    console.log("we cannot identify the real missing number");
+    console.log("Cannot identify the real missing number. There are "+missingNum+" missing numbers followed the n+1 sequence");
   }else if (size === 1) {
     console.log("missing number is : "+missingNum);
   }
