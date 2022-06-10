@@ -1,10 +1,10 @@
 public class Cake {
 	
-	private String cakeType;
-	private String icing;
-	private int layers;
-	private String sprinkles;
-	private String ganache;
+	private final String cakeType;
+	private final String icing;
+	private final int layers;
+	private final String sprinkles;
+	private final String ganache;
 	
 	public Cake(Decor decor) {
 		this.cakeType = decor.cakeType;
