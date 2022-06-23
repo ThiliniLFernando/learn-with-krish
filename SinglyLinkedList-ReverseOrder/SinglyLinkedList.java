@@ -35,7 +35,7 @@ public class SinglyLinkedList{
 	}
 
 	public void reverse(){
-		if(tail != null && tail != null){
+		if(tail != null && head != null){
 			Node prevTail = tail; 
 			Node current = head;
 			Node next = null;
