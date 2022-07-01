@@ -4,12 +4,14 @@ public class SinglyLinkedList{
 	private Node tail = null;
 
 	private class Node{
+		int position;
 		String data;
 		Node next;
 
 		private Node(String data){
 			this.data = data;
 			this.next = null;
+			this.position = size - 1;
 		}
 
 	}
@@ -24,6 +26,24 @@ public class SinglyLinkedList{
 			tail.next = node ;
 			tail = node ;
 		}
+	}
+
+	public String getNodeValue(int position){
+		Node current = head ;
+		String value = null;
+		if(size>position){
+			if(current != null){
+				while(current != null){
+					if (current.position == position) {
+						value = current.data;
+						break;
+					}else{
+						current = current.next;
+					}
+				}
+			}
+		}
+		return value;
 	}
 
 	public void display(){
@@ -45,16 +65,9 @@ public class SinglyLinkedList{
 	public boolean isPalindrome(){
 		boolean isP = false;
 		if(head != null){
-			Node current = head;
 			int currentPosition = 0;
-			String[] array = new String[size];
-			while(current != null){
-				array[currentPosition] = current.data.toLowerCase();
-				current = current.next;
-				currentPosition++;
-			}
 			for (int i = 0; i <= size/2 - 1; i++) {
-				if (!array[i].equals(array[size-1-i])) {
+				if (!getNodeValue(i).equals(getNodeValue(size-1-i))) {
 					isP = false;
 					break;
 				}else{
@@ -68,7 +81,7 @@ public class SinglyLinkedList{
 
 	public static void main(String[] args) {
 		SinglyLinkedList sll = new SinglyLinkedList();
-		sll.addNode("R");
+		sll.addNode("r");
 		sll.addNode("a");
 		sll.addNode("c");
 		sll.addNode("e");
