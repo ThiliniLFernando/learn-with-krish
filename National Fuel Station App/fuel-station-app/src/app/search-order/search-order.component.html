@@ -1,0 +1,21 @@
+<div class="border">
+    <h5>Search Order</h5>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1">
+                <label class="form-label">Order Id</label>
+            </div>
+            <div class="col-lg-4">
+                <input type="text" #searchId name="gstation_uniqueId" class="form-control" placeholder="enter order key">
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="btn btn-primary" (click)="searchOrderStatus(searchId.value)" >check order status</button>
+                <button type="button" class="btn btn-success" (click)="confirmOrderReceived(searchId.value)">confirm order received</button>
+            </div>
+            <div class="col-lg-3">
+                <p #response>{{respMsg}}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

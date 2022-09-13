@@ -1,0 +1,15 @@
+<div class="border">
+    <h5>Create New Order</h5>
+    <label for="fuel_type" class="form-label">Fuel Type</label>
+    <select type="text" name="fuel_type" class="form-control" #fuelType>
+        <option>Octane B</option>
+        <option>Octane C</option>
+    </select>
+    <br>
+    <label class="form-label">Order Qty</label>
+    <input type="number" name="gstation_qty" class="form-control" placeholder="Enter Qty" #qty>
+    <br>
+    <button type="button" class="btn btn-primary" id="createOrderBtn" (click)="createOrder(fuelType.value,qty.value)" >create order</button>
+    <br><br>
+    <label  #response style="color: black;">{{msg}}</label>
+</div>
