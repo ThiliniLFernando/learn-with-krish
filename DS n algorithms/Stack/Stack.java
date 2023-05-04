@@ -30,6 +30,10 @@ public class Stack{
 			return true;
 		}
 	}
+	
+	public int peek(){
+		return this.array[this.TOP];
+	}
 
 	public boolean isEmpty(){
 		return this.TOP > -1 ;
