@@ -17,6 +17,7 @@ public class Consumer {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
+        // this tells RabbitMQ not to give more than one message to a worker at a time. 
         int prefetchCount = 1;
         channel.basicQos(prefetchCount);
 
